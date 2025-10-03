@@ -18,24 +18,37 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    Text("Welcome!")
+                    Text("Quote | Currency App")
                         .font(.largeTitle)
                         .fontWeight(.semibold)
                         .foregroundColor(Color.black)
                     
-                    Image("earth-img")
-                        .resizable()
-                        .cornerRadius(10)
-                        .aspectRatio(contentMode: .fit)
-                        .padding(.all)
+                    Label("Welcome!", systemImage: "star")
+                        .padding(.top, 20)
+
+                    Spacer()
                     
-                    Button("Generate Quote") {
-                        path.append(Screen.quote)
+                    VStack {
+                        Image("earth-img")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 450)
+                            .cornerRadius(10)
+                            .aspectRatio(contentMode: .fit)
+                            .clipped()
+                            .padding(.top, 50)
+                        
+                        Button("Browse Quotes") {
+                            path.append(Screen.quote)
+                        }
+                        .padding(25)
+                        
+                        Button("Use Currency Converter"){
+                            path.append(Screen.currency)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     }
-                    
-                    Button("Access Currency"){
-                        path.append(Screen.currency)
-                    }
+                    Spacer()
                     
                     .navigationDestination(for: Screen.self) { screen in
                         switch screen {
