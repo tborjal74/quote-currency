@@ -13,6 +13,10 @@ struct CurrencyView: View {
         @State private var toCurrency: String = "EUR"
         @State private var convertedAmount: String = ""
         @State private var currencies: [String] = ["USD", "EUR"]
+        @State private var showAmountError = false
+        @State private var amountErrorMessage = ""
+        @State private var showFetchError = false
+        @State private var fetchErrorMessage = ""
     
     var body: some View {
         VStack (spacing: 20) {
@@ -58,16 +62,34 @@ struct CurrencyView: View {
                     .onAppear {
                         fetchCurrencies()
                     }
+                    .alert(isPresented: $showAmountError) {
+                        Alert(title: Text("Error"),
+                              message: Text(amountErrorMessage),
+                              dismissButton: .default(Text("OK")))
+                    }
+                    .alert(isPresented: $showFetchError) {
+                        Alert(title: Text("Error Loading Currencies"),
+                              message: Text(fetchErrorMessage),
+                              primaryButton: .default(Text("Retry"), action: { fetchCurrencies() }),
+                              secondaryButton: .cancel())
+                    }
     }
     func convertCurrency() {
-        guard let amountValue = Double(amount) else {
-            convertedAmount = "Invalid amount"
-            return
-        }
+        guard !amount.isEmpty else {
+                amountErrorMessage = "Please enter an amount to convert."
+                showAmountError = true
+                return
+            }
+            guard let amountValue = Double(amount) else {
+                amountErrorMessage = "Please enter a valid numeric amount."
+                showAmountError = true
+                return
+            }
+        
         let urlString = "https://api.frankfurter.app/latest?amount=\(amountValue)&from=\(fromCurrency)&to=\(toCurrency)"
         guard let url = URL(string: urlString) else { return }
 
-        // Run on the main actor to satisfy main-actor isolated Decodable conformance in Swift 6
+        // Main Actor for the Currency Function
         Task { @MainActor in
             do {
                 let (data, _) = try await URLSession.shared.data(from: url)
@@ -95,7 +117,10 @@ struct CurrencyView: View {
                     currencies = Array(response.keys).sorted()
                 }
             } catch {
-                // You can handle errors here if desired
+                await MainActor.run {
+                    fetchErrorMessage = error.localizedDescription
+                    showFetchError = true
+                }
             }
         }
     }
