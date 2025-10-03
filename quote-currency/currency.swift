@@ -18,6 +18,9 @@ struct CurrencyView: View {
         @State private var showFetchError = false
         @State private var fetchErrorMessage = ""
     
+        let currencySymbols: [String: String] = [
+            "USD": "$", "EUR": "€", "GBP": "£", "JPY": "¥", "PHP": "₱", "KRW": "₩", "HKD": "HK$", ]
+    
     var body: some View {
         VStack (spacing: 20) {
             
@@ -38,6 +41,9 @@ struct CurrencyView: View {
                                     Text(currency)
                                 }
                             }
+                            
+                            Label("", systemImage: "arrow.right")
+                            
                             Picker("To", selection: $toCurrency) {
                                 ForEach(currencies, id: \.self) { currency in
                                     Text(currency)
@@ -51,7 +57,7 @@ struct CurrencyView: View {
                         }
                         .padding()
                         
-                        Text("Converted Amount: \(convertedAmount)")
+                        Text("Converted Amount: \(currencySymbols[toCurrency, default: toCurrency])\(convertedAmount)")
                             .font(.headline)
             }
             Spacer()
