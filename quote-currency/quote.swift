@@ -11,11 +11,10 @@ struct QuoteView: View {
     var body: some View {
         VStack{
             
-            Label("Welcome to Quote Page", systemImage: "globe")
+            Label("Inspirational Quotes", systemImage: "pencil")
                 .font(.title)
                 .padding(.top, 40)
             Spacer()
-            
         }
     }
 }

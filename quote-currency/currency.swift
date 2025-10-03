@@ -24,7 +24,7 @@ struct CurrencyView: View {
     var body: some View {
         VStack (spacing: 20) {
             
-            Label("Welcome to the Currency Page", systemImage: "globe")
+            Label("Currency Converter", systemImage: "dollarsign.circle")
                 .font(.title)
                 .padding(.top, 40)
             Spacer()
