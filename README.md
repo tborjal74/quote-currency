@@ -17,8 +17,6 @@ For the collection page, the user will see the images saved locally in the quote
 
 The purpose of this app is to demonstrate my learning in SwiftUI and Swift programming language in developing a functioning mobile app for the iOS environment.
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the app running and a walkthrough of the code.}
-
 [Software Demo Video](http://youtube.link.goes.here)
 
 # Development Environment
