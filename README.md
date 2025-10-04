@@ -5,7 +5,7 @@ This application can allow the user to convert internationally selected currenci
 
 # Description 
 
-The user needs to have an iPhone in order to use the app. As the application opens, it will direct the user in the home page where there 3 buttons to view (Browse Quotes, Use Currency Converter, Collection).
+The user needs to have an iPhone in order to use the app. As the application opens, it will direct the user in the home page where there are 3 buttons to view (Browse Quotes, Use Currency Converter, Collection).
 For the quotes page, it contains 5 functional buttons. The user can tap on "Save to Photos" for the image to be saved in the photo library app. Tapping on "Save to Collection" will save the image locally and it will appear in the collections page.
 The other buttons function like utility for a playlist. The user can browse inspirational quotes by tapping on Next, Shuffle, Previous. 
 
