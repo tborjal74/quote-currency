@@ -47,6 +47,11 @@ struct ContentView: View {
                             path.append(Screen.currency)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                        
+                        Button("Collection") {
+                            path.append(Screen.collection)
+                        }
+                        .padding(25)
                     }
                     Spacer()
                     
@@ -57,6 +62,8 @@ struct ContentView: View {
                             QuoteView()
                         case .currency:
                             CurrencyView()
+                        case .collection:
+                            CollectionView()
                             
                         }
                     }
@@ -69,6 +76,7 @@ struct ContentView: View {
 enum Screen: Hashable {
     case quote
     case currency
+    case collection
 }
 
 struct ContentView_Previews: PreviewProvider {
