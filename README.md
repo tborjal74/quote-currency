@@ -31,7 +31,7 @@ The purpose of this app is to demonstrate my learning in SwiftUI and Swift progr
 
 # Useful Websites
 
-* [Swift]([http://url.link.goes.here](https://www.swift.org/documentation/))
+* [Swift](https://www.swift.org/documentation/)
 * [Apple Developer](https://developer.apple.com/tutorials/develop-in-swift/hello-swiftui/)
 * [Learn the Essentials of Swift in one hour](https://www.youtube.com/watch?v=n5X_V81OYnQ&t=1163s)
 * [CodeWithChris](https://www.youtube.com/@CodeWithChris)
