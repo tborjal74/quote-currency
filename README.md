@@ -38,7 +38,7 @@ The purpose of this app is to demonstrate my learning in SwiftUI and Swift progr
 
 # Future Work
 
-* Implement adding a new functionality that allows the user to add its own image/text for quotes
+* Implement a new functionality that allows the user to add its own image/text for quotes
 * Add a login connected to a database, integrated with OAuth and a well designed interface for accessing the app through iOS
 * Improve the design of the home page by using advanced SwiftUI.
 * Host the app and deploy in the App Store
