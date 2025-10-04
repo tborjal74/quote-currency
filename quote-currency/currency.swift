@@ -81,7 +81,7 @@ struct CurrencyView: View {
                     }
     }
     func convertCurrency() {
-        guard !amount.isEmpty else {
+            guard !amount.isEmpty else {
                 amountErrorMessage = "Please enter an amount to convert."
                 showAmountError = true
                 return
@@ -123,6 +123,7 @@ struct CurrencyView: View {
                     currencies = Array(response.keys).sorted()
                 }
             } catch {
+                // Error Handling for Fetching Currency Data
                 await MainActor.run {
                     fetchErrorMessage = error.localizedDescription
                     showFetchError = true
