@@ -17,6 +17,7 @@ struct SavedImage: Identifiable, Codable {
     }
 }
 
+// Serves as the local storage for the application when an image is saved
 enum SavedImageStorage {
     private static let key = "SavedImages"
 

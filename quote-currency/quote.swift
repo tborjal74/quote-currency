@@ -91,7 +91,7 @@ struct QuoteView: View {
             .background(Color.white.ignoresSafeArea())
         }
     }
-    
+    // Ongoing authorization to allow the app to access Photos App
     private func saveToPhotoLibrary(_ image: UIImage) {
         PHPhotoLibrary.requestAuthorization { status in
             switch status {

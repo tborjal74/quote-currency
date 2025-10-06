@@ -37,7 +37,7 @@ struct CollectionView: View {
             reload()
         }
     }
-
+    // Automatic checking of the SavedImages 
     private func reload() {
         savedImages = SavedImageStorage.load()
     }

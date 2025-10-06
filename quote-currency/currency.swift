@@ -80,6 +80,7 @@ struct CurrencyView: View {
                               secondaryButton: .cancel())
                     }
     }
+    // Converts the Currency Setup in the UI | Calls the API endpoint
     func convertCurrency() {
             guard !amount.isEmpty else {
                 amountErrorMessage = "Please enter an amount to convert."
@@ -111,6 +112,7 @@ struct CurrencyView: View {
         }
     }
 
+    // Fetches the currency JSON in the API
     func fetchCurrencies() {
         let urlString = "https://api.frankfurter.app/currencies"
         guard let url = URL(string: urlString) else { return }
